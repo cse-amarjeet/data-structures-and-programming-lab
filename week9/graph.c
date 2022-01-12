@@ -142,6 +142,17 @@ void main()
 		{
 			int node;
 		    int i = 0,j,k;
+	
+	    	printf("Enter starting vertex between (0 to %d): ",n-1);
+			scanf("%d",&i);
+			if(i>(n-1))
+			{
+				printf("\n\nplease Enter a number less than or equal %d   ",n-1);
+				continue;
+			}
+			
+		
+		    
 		    int visited[n];
 		    for(k=0;k<n;k++)
 		    {
@@ -153,7 +164,7 @@ void main()
 		    while (!isEmpty(&q))
 		    {
 		        int node = dequeue(&q);
-		        for (j = 0; j < 7; j++)
+		        for (j = 0; j < n; j++)
 		        {
 		            if(matrix[node][j] ==1 && visited[j] == 0){
 		                printf(" %d ", j);
@@ -165,13 +176,23 @@ void main()
 		}
 		else if(3==choice)
 		{
+			int start_v;
+			printf("Enter starting vertex between (0 to %d): ",n-1);
+			scanf("%d",&start_v);
+			if(start_v>(n-1))
+			{
+				printf("\n\nplease Enter a number less than or equal %d   ",n-1);
+				continue;
+			}
+			
+			
 			int visited[n];
 			for(i=0;i<n;i++)
 			{
 				visited[i]=0;
 			}
 		
-			print_dfs(n,matrix,0,visited);
+			print_dfs(n,matrix,start_v,visited);
 		}
 		else if(4==choice)
 		{
